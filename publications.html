@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Publications — Médiation Genève</title>
+<style>
+:root{--ink:#14263a;--soft:#4a5b6d;--bg:#fbf9f5;--navy:#0f2a43;--navy2:#173d5e;--accent:#b8893b;--line:#e6e0d4;
+--serif:Georgia,"Times New Roman",serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.75;font-size:17.5px}
+img{max-width:100%;display:block}
+.wrap{width:min(1080px,92%);margin:0 auto}
+
+header{position:sticky;top:0;z-index:50;background:rgba(251,249,245,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;min-height:78px;gap:1rem}
+.logo img{height:54px;width:auto}
+nav>ul{list-style:none;display:flex;gap:1.5rem;align-items:center}
+nav li{position:relative}
+nav a{text-decoration:none;color:var(--ink);font-size:.93rem;font-weight:500;padding:.5rem 0;display:inline-block}
+nav a:hover,nav a.on{color:var(--accent)}
+nav li ul{list-style:none;position:absolute;top:100%;left:-1rem;min-width:290px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:.6rem 0;box-shadow:0 18px 40px -18px rgba(15,42,67,.35);display:none}
+nav li:hover>ul,nav li:focus-within>ul{display:block}
+nav li ul a{display:block;padding:.4rem 1.2rem;font-size:.9rem}
+nav li ul ul{position:static;display:block;border:0;box-shadow:none;padding:0 0 0 .9rem;min-width:0;background:none}
+nav li ul ul a{font-size:.85rem;color:var(--soft)}
+.lang{display:flex;gap:.45rem;align-items:center}
+.lang img{width:22px;height:auto;border-radius:3px;opacity:.9}
+.lang a:hover img{opacity:1}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:.4rem}
+.burger span{display:block;width:26px;height:2px;background:var(--navy);margin:6px 0}
+
+.hero{position:relative;height:min(62vh,520px);min-height:320px;background:var(--navy);overflow:hidden}
+.hero.small{height:230px;min-height:0}
+.hero .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;animation:fade 18s infinite}
+.hero .slide:nth-child(2){animation-delay:6s}
+.hero .slide:nth-child(3){animation-delay:12s}
+.hero .slide.on{opacity:1;animation:none}
+@keyframes fade{0%{opacity:0}6%{opacity:1}33%{opacity:1}39%{opacity:0}100%{opacity:0}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,42,67,.12) 0%,rgba(15,42,67,.78) 100%)}
+.hero .txt{position:absolute;z-index:2;left:0;right:0;bottom:2.2rem;color:#fff}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,4.8vw,3.3rem);line-height:1.15}
+.hero.small h1{font-size:clamp(1.6rem,3.6vw,2.5rem)}
+.hero p{margin-top:.5rem;color:#e6edf4;font-size:1.1rem;letter-spacing:.04em}
+
+main{padding:3.2rem 0 5rem}
+.prose{background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(1.4rem,4vw,3rem);box-shadow:0 24px 50px -34px rgba(15,42,67,.4)}
+.prose p,.prose li{max-width:75ch}
+.prose p{margin-bottom:1.15rem}
+.prose h2{font-family:var(--serif);color:var(--navy);font-size:1.45rem;margin:2rem 0 .7rem;line-height:1.25}
+.prose h2:first-child{margin-top:0}
+.prose ul{margin:0 0 1.2rem 1.2rem}
+.prose li{margin-bottom:.6rem}
+.prose ul.plain{list-style:none;margin-left:0}
+.prose ul.plain li{padding:.8rem 1rem;border-left:3px solid var(--accent);background:#faf6ee;border-radius:0 10px 10px 0}
+.prose a{color:var(--navy);font-weight:600;text-decoration:none;border-bottom:2px solid rgba(184,137,59,.5);transition:.15s}
+.prose a:hover{background:rgba(184,137,59,.14);border-color:var(--accent)}
+.pull{font-family:var(--serif);font-size:1.3rem;color:var(--navy);border-left:4px solid var(--accent);padding:.4rem 0 .4rem 1.3rem;margin-top:1.8rem!important}
+.fl{display:inline-block;font-size:.68rem!important;letter-spacing:.08em;padding:.05rem .5rem!important;margin:0 .15rem;border:1px solid var(--accent)!important;border-radius:6px;color:var(--accent)!important;background:#fff;font-weight:700!important;line-height:1.6;vertical-align:.1em}
+.fl:hover{background:var(--accent)!important;color:#fff!important}
+.pub-section{font-family:var(--serif);color:var(--navy);font-size:1.5rem;margin:2.4rem 0 1rem;padding-top:1.4rem;border-top:1px solid var(--line)}
+.pub-section:first-child{border-top:0;margin-top:0;padding-top:0}
+.pub-list{list-style:none;margin:0!important}
+.pub-list li{padding:.7rem 0;border-bottom:1px dashed var(--line);max-width:none;font-size:.97rem;margin:0}
+.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem}
+.quick a{display:block;text-decoration:none;background:var(--navy);color:#fff;border-radius:14px;padding:1.6rem;transition:.2s}
+.quick a:hover{transform:translateY(-3px);background:var(--navy2)}
+.quick b{display:block;font-family:var(--serif);font-size:1.25rem;margin-bottom:.2rem}
+.quick span{color:#e3c58a;font-size:.88rem}
+.contact-top{display:grid;grid-template-columns:260px 1fr;gap:2rem;margin-bottom:2rem;align-items:start}
+.contact-top img{border-radius:14px;width:100%}
+.map iframe{width:100%;height:320px;border:0;border-radius:14px}
+.links{list-style:none;margin-left:0!important}
+.links li{padding:.55rem 0;border-bottom:1px solid var(--line);max-width:none}
+
+footer{background:#0a1d30;color:#8fa2b6;padding:2.2rem 0;font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+footer a{color:#c3d0dd;text-decoration:none;margin-right:1.2rem}
+footer a:hover{color:#fff}
+
+@media(max-width:1000px){
+ .burger{display:block}
+ nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);padding:1rem 4% 1.4rem;max-height:80vh;overflow:auto}
+ nav.open{display:block}
+ nav>ul{flex-direction:column;align-items:flex-start;gap:.3rem}
+ nav li ul{position:static;display:block;border:0;box-shadow:none;padding:0 0 0 1rem;min-width:0;background:none}
+ .quick{grid-template-columns:1fr}
+ .contact-top{grid-template-columns:1fr}
+ .contact-top img{max-width:260px}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap bar">
+  <a class="logo" href="index.html" aria-label="Médiation Genève"><img src="https://www.mediationgeneve.ch/wp-content/uploads/2016/08/MG_Logo.png" alt="Médiation Genève"></a>
+  <button class="burger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')"><span></span><span></span><span></span></button>
+  <nav id="menu">
+   <ul>
+    <li><a href="index.html">Accueil</a></li><li><a href="la-mediation.html">La médiation</a></li><li><a href="domaine-commercial.html">Domaines d’activités</a><ul><li><a href="domaine-commercial.html">Domaine Commercial</a></li><li><a href="domaine-immobilier.html">Domaine Immobilier</a></li><li><a href="domaine-familial.html">Domaine Familial</a></li></ul></li><li><a href="profil.html">Profils et Publications</a><ul><li><a href="conseiller-gestion-conflits.html">Conseiller en Gestion des conflits (CGC)</a><ul><li><a href="processus-hybrides.html">Processus Hybrides</a></li></ul></li><li><a href="mediateur.html">Médiateur</a></li><li><a href="conciliateur.html">Conciliateur</a></li><li><a href="curateur.html">Curateur</a></li><li><a href="formateur.html">Formateur</a></li><li><a class="on" href="publications.html">Publications</a></li><li><a href="formation.html">Formation</a></li></ul></li><li><a href="contact-liens.html">Contact &amp; Liens</a></li>
+    <li class="lang">
+     <a href="https://www.mediationgeneve.ch/fr/"><img src="https://www.mediationgeneve.ch/wp-content/plugins/qtranslate-x/flags/fr.png" alt="Français"></a>
+     <a href="https://www.mediationgeneve.ch/en/"><img src="https://www.mediationgeneve.ch/wp-content/plugins/qtranslate-x/flags/gb.png" alt="English"></a>
+     <a href="https://www.mediationgeneve.ch/ru/"><img src="https://www.mediationgeneve.ch/wp-content/plugins/qtranslate-x/flags/ru.png" alt="Русский"></a>
+    </li>
+   </ul>
+  </nav>
+ </div>
+</header>
+
+<section class="hero small">
+ <div class="slide on" style="background-image:url('https://www.mediationgeneve.ch/wp-content/uploads/2016/08/Geneve-header.jpg')"></div>
+ <div class="txt"><div class="wrap"><h1>Publications</h1></div></div>
+</section>
+
+<main><div class="wrap">
+
+<div class="prose">
+<h2 class="pub-section">A. Ouvrages (éditeur et co-auteur)</h2>
+<ul class="pub-list">
+<li><strong>DICTIONNAIRE DE LA MEDIATION ET D’AUTRES MODES AMIABLES, Bruylant, coll. Paradigme, Bruxelles, nov. 2019</strong></li>
+<li><strong>LA RESOLUTION AMIABLE DES DIFFERENDS EN SUISSE, Interactions entre procédures traditionnelles et modes consensuels, Stämpfli, Berne, avril 2016</strong> <a class="fl" href="http://www.mediationgeneve.ch/docs/RADCH0416.pdf">FR</a></li>
+<li><strong>ADR Bibliography, Slatkine, Genève, 2014, complétée par Civil Justice and Mediation, Short Bibliography, GEMME, février 2022 (disponibles sur <a href="http://www.mediationgenve.com">www.mediationgenve.com</a>)</strong></li>
+<li><strong>DICTIONNAIRE DE LA RESOLUTION AMIABLE DES DIFFERENDS, (RAD / ADR) en matière civile, commerciale, familiale et sociale, Larcier, Bruxelles, 2015</strong> <a class="fl" href="http://www.mediationgeneve.ch/Dictionnaire%20de%20la%20r%C3%A9solution%20amiable%20des%20d%C3%A9ff%C3%A9rents.pdf">FR</a></li>
+<li><strong>MEDIATION ET JEUNESSE. MINEURS ET MEDIATION FAMILIALES, SCOLAIRES ET PENALES EN PAYS FRANCOPHONES, Bruxelles, Larcier</strong>, 2013 <a class="fl" href="http://www.mediationgeneve.ch/FEUIL-MEDJEU.PDF">FR</a></li>
+<li><strong>DES OUTILS POUR LA MEDIATION EN MILIEU SCOLAIRE, Genève, 2013</strong> <a class="fl" href="http://www.mediationgeneve.ch/Outil%20MS.pdf">FR</a></li>
+<li><strong>LA MEDIATION DANS L’ORDRE JURIDIQUE SUISSE. UNE JUSTICE DURABLE A L’ECOUTE DU TROISIEME MILLENAIRE, Helbing &amp; Lichtenhahn, Bâle, 2011</strong> <a class="fl" href="http://www.mediationgeneve.ch/Details%2011.pdf">FR</a></li>
+<li><strong>LA GESTION DES CONFLITS. MANUEL POUR LES PRATICIENS, avec Sandra Vigneron, CEDIDAC, No 78, Lausanne, nov. 2008</strong> <a class="fl" href="http://www.mediationgeneve.ch/docs/Details%2013.pdf">FR</a></li>
+</ul>
+
+<h2 class="pub-section">B. Articles <small style="font-size:.7em;font-weight:400">(souvent disponibles sur <a href="http://www.gemme.ch/">www.gemme.ch</a>)</small></h2>
+<ul class="pub-list">
+<li>La collaboration tripartite, levain de la médiation judiciaire en Europe, in Actes du <em>Colloque sur la médiation et les modes amiables</em>, organisé conjointement par le Tribunal d’instance et par le Barreau de Strasbourg, le 23.06.2022</li>
+<li>Aux sources de la Médiation dans la pensée orthodoxe, in : Béatrice BRENNEUR (éd.), <em>Sources spirituelles de la médiation,</em> L’Harmatan, Paris, 2022</li>
+<li>Mediation im Zivilprozess : Ein Plädoyer für die Begleitung eines Paradigmenwechsels / Médiation et Justice civile : un plaidoyer pour accompagner les changements, in : perspktive mediation, 4 I 2021, Deutschland, Österreich, Schweiz, <a href="http://www.perpektive-mediation.com">www.perpektive-mediation.com</a></li>
+<li>Le droit des parties d’accéder à la médiation en procédure civile. A l’occasion du X e anniversaire du CPC, quelques pistes de réflexion pour vivifier les art. 213, 214 et 297 et trois clés pour déverrouiller leurs portes, in : RSDC, 2021, N0 1</li>
+<li>Renvoi Judiciaire en Médiation dans le cadre des art. 213, 214, 297 CPC et 307 CC et des instruments de la CEPEJ (Conseil de l’Europe), Réflexions sur la pratique de(s) tribunaux civils de 1 e instance des cantons de la Suisse romande, in : RSPC, déc. 2019</li>
+<li>Towards a better cooperation between judges, mediators and lawyers: New challenges for developing court-related mediation through CEPEJ Toolkits, présentation à la 3 Conférence internationale de Conflictologie, Université d’Etat de Saint-Pétersbourg, 16/17 nov. 2019</li>
+<li>РОЛЬ АДВОКАТА В КОММЕРЧЕСКОЙ МЕДИАЦИИ : Опыт Швейцарии в свете инструментов Совета Европы, Третейский Суд N 3/4 (115/116) 2018</li>
+<li><em>Quels rôles pour l’Avocat en médiation commerciale ? Reflets de la pratique à la lumière des instruments du conseil de l’Europe, Les Cahiers de l’Arbitrage, Paris, 2018-3</em></li>
+<li><em>КАКОВА РОЛЬ АДВОКАТА В КОММЕРЧЕСКОЙ МЕДИАЦИИ? Treteyskyi sud, No 3/4 2018, p. 275 ss</em></li>
+<li><i>Médiation commerciale : un témoignage. Comment conjuguer les intérêts de la famille et ceux des entreprises dans les conflits successoraux, in : </i>Ordre des Avocats de Genève-commission ADR, Laurent Hirsch et Christophe Imhoos (éds), Arbitrage, médiation et autres modes pour résoudre les conflits autrement, Schulthess, novembre 2018</li>
+<li><i>Le Conseil de l’Europe, soutien indéfectible de la médiation, in : </i>ANM, Lettre No 8, octobre 2018</li>
+<li><em>La Sensibilisation (formation) initiale et continue des juges en matière de médiation</em>, in : Justice-Justiz-Giustitia 2018/1, résumés <a class="fl" href="http://www.mediationgeneve.ch/SENSIBILISATION%20MP_fr">FR</a> <a class="fl" href="http://www.mediationgeneve.ch/SENSIBILISATION%20MP_all">DE</a> <a class="fl" href="http://www.mediationgeneve.ch/SENSIBILISATION%20MP_ru2">RU</a></li>
+<li><em>Le juge civil comme prescripteur de la médiation</em>, in : Justice- Justiz- Giustitia 2017/ 2, résumés <a class="fl" href="http://www.mediationgeneve.ch/Résumé_F.pdf">FR</a> <a class="fl" href="http://www.mediationgeneve.ch/Résumé_D.pdf">DE</a> <a class="fl" href="http://www.mediationgeneve.ch/Résumé%202_ru.pdf">RU</a></li>
+<li>La Médiation dans le contexte des conflits entre actionnaires, avec Michèle Weil-Guthmann, in : Les conflits entre actionnaires, CEDIDAC, Lausanne, 2017 <a class="fl" href="http://www.mediationgeneve.ch/Résumé_Summary%20FR%20-%20LA_MEDIATION%20dans%20le%20CONTEXTE%20des%20CONFLITS%20ENTRE%20ACTIONNAIRES_RU.pdf">FR</a> <a class="fl" href="http://www.mediationgeneve.ch/Résumé_Summary%20EN%20-%20LA_MEDIATION%20dans%20le%20CONTEXTE%20des%20CONFLITS%20ENTRE%20ACTIONNAIRES_RU.pdf">EN</a> <a class="fl" href="http://www.mediationgeneve.ch/Résumé_Summary%20RU%20-%20LA_MEDIATION%20dans%20le%20CONTEXTE%20des%20CONFLITS%20ENTRE%20ACTIONNAIRES_RU.pdf">RU</a></li>
+<li>Ж.А. МИРИМАНОФФ, ГИБРИДНЫЕ ФОРМЫ РАЗРЕШЕИЯ СПОРОВ, Третейский Суд N 6 (108) 2016</li>
+<li>Les Processus hybrides, in: LA RESOLUTION AMIABLE DES DIFFERENDS EN SUISSE, Interactions entre procédures traditionnelles et modes consensuels, Stämpfli, Berne, avril 2016 <a class="fl" href="http://www.mediationgeneve.ch/Extrait_JAM_RU%201.pdf">RU</a></li>
+<li><em>La Médiation : de la mythologie à la réalité ; parabole sur la justice plurielle In</em>: Paola CECCHI DIMEGLIO et al., Manuel interdisciplinaire des modes amiables de résolution des conflits, Larcier, Bruxelles, 2015</li>
+<li><em>Le Conflit et sa gestion : Vers un changement de paradigme? Réflexions et témoignages tirées de trois pratiques professionnelles en Suisse, avec 3 visions du conflit : la voie judiciaire, la voie conciliatoire et la médiation, dans le nouveau contexte d’une justice plurielle. 2e Congrès de Conflictologie, Université d’Etat de Saint-Pétersbourg, 3-4 octobre 2014</em> <a class="fl" href="http://www.mediationgeneve.ch/LE%20CONFLIT%20ET%20SA%20GESTION.pdf">FR</a> <a class="fl" href="http://www.mediationgeneve.ch/LE%20CONFLIT%20ET%20SA%20GESTION_RU.pdf">RU</a></li>
+<li>Introduire, renforcer et développer <i>la médiation en milieu scolaire: un défi pour renouveler notre contrat social, in: Médiation et jeunesse. Mineurs et médiations familiales, scolaires et pénales en pays francophone, Larcier, Bruxelle, 2013</i>. <a class="fl" href="http://www.mediationgeneve.ch/Résumé.pdf">FR</a> <a class="fl" href="http://www.mediationgeneve.ch/Abstract_en.pdf">EN</a> <a class="fl" href="http://www.mediationgeneve.ch/abstractRU.pdf">RU</a></li>
+<li>Résolution amiable des différends: Introduction et principales caractéristiques, in : Fiches juridiques suisses, numéro 912, 2013.</li>
+<li><em>Comment introduire la médiation dans notre culture judiciaire ? in : Regards croisés sur la médiation judiciaire, Actes du colloque de Paris du 11 mai 2012</em>.</li>
+<li>L’accés à la Médiation en matière civile et commerciale: analyse et perspective au pays de St Nicolas de Flue, in: Schweizerische Richterzeitung, Mars 2012.</li>
+<li><em>The Access to Mediation in civil and commercial disputes : analysis and prospect in Switzerland, </em>ДОСТУП К МЕДИАЦИИВ СФЕРЕ ГРАЖДАНСКОЙ И КОММЕРЧЕСКОЙ ДЕЯТЕЛЬНОСТИ (анализ и перспектива для Швейцарии)<em>, </em>présentation à la Conférence Germano-Russe sur la médiation « Petersburg Dialog », les 16 et 17 décembre 2011, organisé par les Universités de St Pétersbourg et de Hambourg, In: Revue « Konfliktologia » numéro 1, 2013, <a class="fl" href="http://www.mediationgeneve.ch/details%2014.pdf">RU</a></li>
+<li><em>L’universalité de la médiation, </em>présentation à la 1<sup>ère</sup> Conférence Franco-Russe sur la médiation, <em>УНИВЕРСАЛЬНЫЙ ХАРАКТЕР МЕДИАЦИИ Опыт и свидетельство Европы: триптиx</em>, Moscou 30 septembre 2010, en français et en russe, <a href="http://www.gemme.eu/">www.gemme.eu</a> <a class="fl" href="http://mediationgeneve.ch/docs/Details%2015.pdf">RU</a></li>
+<li><em>La médiation n’est pas dans notre culture ? Observations sur les mouvements et les éclipses de la justice plurielle, in :</em> Revue Justice- Justiz-Giustizia, mars 2010, www.riechterzeitung.ch</li>
+<li>Les Principes de la Médiation, in : Revue Justice-Justiz- Giustizia, 2010/4, <a href="http://www.richterzeitung.ch">www.richterzeitung.ch</a></li>
+<li><em>L’Orientation préalable ou l’art de sélectionner le mode de résolution des différends le plus approprié, </em>AWP/PB, 1 / 2010, p.14 ss, <a class="fl" href="http://mediationgeneve.ch/docs/Details%2016.pdf">FR</a></li>
+<li><i>Feasibility of Mediation Systems in Switzerland. Does the future belong to court-annexed (justice model), to court-connected (market place model) or to hybrid mediation system ? Reflexions in the light of the New Unified Code of Civil Procedure and of the Swiss Practice, with some excursions into comparative law. </i>Report to UIA World Forum of Mediation Centers, Lausanne, Jan. 31st 2009, ASA Bulletin 2/2009, <a class="fl" href="http://mediationgeneve.ch/docs/Details%2017.pdf">EN</a></li>
+<li><em>Une nouvelle culture : la gestion des conflits, </em>PJA 2/ 2009 <a class="fl" href="http://mediationgeneve.ch/docs/Details%2018.pdf">FR</a></li>
+<li><i>Les Mécanismes de la nouvelle conciliation judiciaire</i>, en collaboration avec Sandra Vigneron-Maggio Aprile, in : La gestion des conflits, cf ci-dessous, texte mis à jour pour la journée d’étude du 28.10.2009, Lausanne, CEDIDAC, www.gemme.ch</li>
+<li><i>Mise en œuvre de la médiation en Suisse : comment accompagner l’évolution de notre culture judiciaire ? in </i>Actes de la Conférence de Valence, organisée par Gemme-Espagne, les 16 et 17 nov. 2007</li>
+<li><i>Amicable dispute resolution or litigation : New Priority or New Approach ? What future for mediation in Switzerland ? in</i> Actes de la Conférence de Vilnius, organisée par le Conseil de l’Europe et le Ministère de la Justice de Lithuanie, 24 et 25 mai 2007</li>
+<li><i>Pour une libre circulation des différends civils et commerciaux, Réflexions sur les nouveaux réseaux de la justice plurielle : le cas suisse dans le contexte européen</i>, en collaboration avec Sandra Vigneron , RDS, avril 2007, <a class="fl" href="http://mediationgeneve.ch/docs/Details%2019.pdf">FR</a></li>
+<li><em>Conciliation et médiation : pour en finir avec un psychodrame familial, in </em>Actes de la deuxième Conférence des ACBL de Suisse, Granges, 12 mai 2006</li>
+<li><i>L’essor de la médiation civile en Europe et en Suisse et le rôle des juges</i>, <i>in </i>Justice-Justiz-Giustizia, mars 2006, www.gemme.ch</li>
+<li><i>Mediation and other ADR in Switzerland</i>, report, Table ronde de Sotchi organisée par le Conseil de l’Europe et le Tribunal suprême d’arbitrage de la Fédération de Russie, nov. 2005</li>
+<li><i>Au pays de St Nicolas de Flue : Médiation et procédures civiles, in</i>: SJZ, sept. 2005</li>
+<li><i>Les nouvelles activités de la Section des affaires sociales de la Commission de conciliation en matière de baux et loyers</i>, en collaboration avec Me David Hoffmann (présentation aux membres de la Chambre genevoise immobilière et du Rassemblement pour une politique sociale du logement, Genève), CdB 3/2005.</li>
+<li><i>L’eurocompatibilité de la loi sur la médiation civile du 28.10.2004. Note à l’occasion de l’entrée en vigueur de la loi genevoise, confrontée aux critères de Strasbourg et de Bruxelles</i>, SJ 2005 II n°5, pp. 125-139.</li>
+<li><em>Les principales caractéristiques de la législation à Genève, in Médiation civile en Suisse</em> / Mediation in Zivilsachen in der Schweiz / Mediazione civile in Svizzera / Mediacíon civil in Suiza / Civil Mediation in Switzerland / ГРАЖДАНСКАЯ СОГЛАСИТЕЛЬНАЯ ПРОЦЕДУРА В ШВЕЙЦАРИИ, publication GEMME-SUISSE, Genève, janvier 2005. <a href="http://www.skwm.ch/wDeutsch/dokumente/Dokumente_franz/mediation_civile.pdf">http://www.skwm.ch/wDeutsch/dokumente/Dokumente_franz/mediation_civile.pdf</a></li>
+<li><i>Mort et Renaissance de la conciliation judiciaire en Suisse</i>? RDS, 2004, n° 5, pp. 529-570.</li>
+<li><i>Médiation civile ou métajudiciaire : pour une nouvelle synergie, et contre la confusion des genres</i>, en collaboration avec Me Martine Chenou, SJ 2003, vol. II, n° 10, pp 271-316.</li>
+<li><i>Procédure civile et médiation : passer d’un mode à l’autre sans en altérer la nature. Présentation à la conférence des juges européens, Conseil de l’Europe, Strasbourg, 25.11.2003, CEJ, interv. N°1 ;</i></li>
+<li><i>Justice et médiation: autonomie ou complémentarité ? </i>Présentation conjointe avec Mme la juge I. Bieri à l’assemblée générale de l’Association Suisse des Magistrats, à Fribourg, 22.11.2003 ;</li>
+<li><i>Civil and commercial Mediation : Overview of the Swiss paradox</i>, presentation to a Mediation interest Group meeting, WIPO, Geneva, 8.09.2003.</li>
+<li><i>La Commission de conciliation en matière de baux et loyers de la République et Canton de Genève, hier, aujourd’hui, demain</i>, publication pour le jubilé de la CCBL et la première rencontre des ACBL, 15 novembre 2002, en collaboration avec Me I. Dubois, résumé allemand : Die Schlichtungsstelle in Mietsachen, gestern, heute, morgen, Der Ablauf der Schlichtung, Genf, idem; <a href="http://www.geneve.ch/tribunaux/pouvoir-judiciaire/vie-judiciaire/jubile.html">http://www.geneve.ch/tribunaux/pouvoir-judiciaire/vie-judiciaire/jubile.html</a></li>
+<li><i>Objection to Arbitrator Following the Annulment of a Partial Award : a potential Jeopardy of Arbitrator in Switzerland ? in:</i> Journal of International Arbitration, vol. 3, n° 2, June 1986, p. 101 ss ;</li>
+<li><i>Restauration du statut juridique de la population civile en période de conflit armé, in: </i>Revue générale de droit international public, 1974 ;</li>
+<li><i>Conférence diplomatique sur la réaffirmation et le développement du droit international humanitaire applicable dans les conflits armés, in: </i>Revue belge de droit international, 1974 ;</li>
+<li><em>The Red Cross and Biological and Chemical weapons, in:</em> A Treatise on International Criminal law, vol. I, ed. by Ch. Bassiouni, Springfield 1973 ;</li>
+<li><i>Protection de la population civile et des personnes civiles contre les dangers résultant des opérations militaires, in: </i>Revue belge droit international, 1971 et 1972.</li>
+</ul>
+
+<h2 class="pub-section">C. Schémas Pédagogiques</h2>
+<ul class="pub-list">
+<li>Le développement possible de la médiation dans les cantons suisses: l’utilisation des outils de la CEPEJ dans l’optique du juge suisse, Neuchâtel, 22 novembre 2018, Diaporama <a class="fl" href="http://mediationgeneve.ch/2018_10_NE_Outils CEPEJ_Diaporama.pdf">FR</a></li>
+<li>Council of Europe and CEPEJ MEDIATION INTRUMENTS : New Tools for enshuring Mediation Development, diaporama for the European conference on Mediation, Skopje, MJ, April 17 th 2019</li>
+<li>Le juge civil comme prescripteur de la médiation, Atelier sur l’intérêt de la médiation pour la Tunisie, Tunis, octobre 2018, Diaporama <a class="fl" href="http://mediationgeneve.ch/2018_10_Conf%C3%A9rence_Tunis_V8.pdf">FR</a></li>
+<li>Rôles et postures du juge civil dans la résolution amiable des litiges. Michèle Weil – Guthmann et Jean A. Mirimanoff, GEMME – Suisse, Fribourg, 5 oct 2017</li>
+<li>Le juge civil comme prescripteur de la médiation, Fondation pour la formation continue des juges suisses, Gerzensee, mars 2017, Atelier <a class="fl" href="http://mediationgeneve.ch/Gerzensee%20Exercices%20pratiques.pdf">FR</a></li>
+<li>Des outils pour la médiation en milieu scolaire, Genève, 2013 <a class="fl" href="http://mediationgeneve.ch/Outil%20MS.pdf">FR</a></li>
+</ul>
+
+<h2 class="pub-section">D. Raports</h2>
+<ul class="pub-list">
+<li>Projet de loi – modifiant la loi sur l’organisation judiciaire (LOJ) (E 2 05) (Encouragement à la médiation)</li>
+<li>La Pratique des Avocats et des Notaire - Le développement possible de la médiation dans les cantons suisses: l’utilisation des outils de la CEPEJ dans l’optique du juge suisse, Neuchâtel, 22 novembre 2018, Diaporamas en relation avec la médiation, rapport à l’attention du CEPEJ GT MED, Slatkine, Genève, 2018, <a class="fl" href="http://mediationgeneve.ch/A_RAPPORT +Note_StrasbourgV_e">FR</a> <a class="fl" href="http://mediationgeneve.ch/A_RAPPORT +Note_StrasbourgV_EN">EN</a> <a class="fl" href="http://mediationgeneve.ch/A_RAPPORT +Note_StrasbourgV_r">RU</a> <a class="fl" href="http://mediationgeneve.ch/A_RAPPORT +Note_StrasbourgV_All">DE</a></li>
+<li><em>La Médiation judiciaire en matière civile à Genève</em>. Bilan d’une décennie: entre naufrage et redressement, in : Justice- Justiz- Giustitia 2015/ 1</li>
+<li><em>Comment affronter un oxymore? Réflexions sur l’« instance de médiation » de l’art. 115 de la Constitution genevoise, observations et propositions sur le projet de loi l’instituant, Genève, février 2014.</em> <a class="fl" href="http://www.mediationgeneve.ch/COMMENT%20AFFRONTER%20UN%20OXYMORE.pdf">FR</a></li>
+</ul>
+
+<h2 class="pub-section">E. Divers</h2>
+<ul class="pub-list">
+<li>MINI LEXIQUE RAD / ADR QUADRILINGUE, avec Marco Pons, Genève 2016, <a href="http://www.mediationgeneve.com">www.mediationgeneve.com</a> ad Publications <a class="fl" href="http://www.mediationgeneve.ch/Minidico.pdf">FR</a> <a class="fl" href="http://www.mediationgeneve.ch/Minidico.pdf">EN</a> <a class="fl" href="http://www.mediationgeneve.ch/Minidico.pdf">RU</a> <a class="fl" href="http://www.mediationgeneve.ch/Minidico.pdf">DE</a></li>
+<li>ADR BIBLIOGRAPHY, avec Marco Pons, Slatkine, Genève 2014 <a class="fl" href="http://www.mediationgeneve.ch/Bibliogr%20ADR_.pdf">FR</a> <a class="fl" href="http://www.mediationgeneve.ch/Bibliogr%20ADR_.pdf">EN</a> <a class="fl" href="http://www.mediationgeneve.ch/Bibliogr%20ADR_.pdf">DE</a></li>
+<li>F.A.Q. MEDIATION, avec Francine COURVOISIER, Slatkine, soutenu par l’Etat de Genève, Genève 2014 <a class="fl" href="http://mediationgeneve.ch/FAQ%20Mediation/000_FAQ_Fran%C3%A7ais_2014_08_28_PDF.pdf">FR</a> <a class="fl" href="http://mediationgeneve.ch/FAQ%20Mediation/000_FAQ_English_2014_08_28_PDF.pdf">EN</a> <a class="fl" href="http://mediationgeneve.ch/FAQ%20Mediation/000_FAQ_Russe_2014_08_28_PDF.pdf">RU</a> <a class="fl" href="http://mediationgeneve.ch/FAQ%20Mediation/000_FAQ_Deutsch_2014_09_22_PDF.pdf">DE</a></li>
+</ul>
+<p style="margin-top:1.5rem;color:var(--soft)">JAM/GE/ 2023</p>
+</div>
+
+</div></main>
+
+<footer>
+ <div class="wrap">
+  <div><a href="la-mediation.html">La médiation</a><a href="profil.html">Profils et Publications</a><a href="contact-liens.html">Contact &amp; Liens</a></div>
+  <span>Copyright Mediationgeneve © 2023 . All Rights Reserved.</span>
+ </div>
+</footer>
+</body>
+</html>

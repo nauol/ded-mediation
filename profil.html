@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profils et Publications — Médiation Genève</title>
+<style>
+:root{--ink:#14263a;--soft:#4a5b6d;--bg:#fbf9f5;--navy:#0f2a43;--navy2:#173d5e;--accent:#b8893b;--line:#e6e0d4;
+--serif:Georgia,"Times New Roman",serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.75;font-size:17.5px}
+img{max-width:100%;display:block}
+.wrap{width:min(1080px,92%);margin:0 auto}
+
+header{position:sticky;top:0;z-index:50;background:rgba(251,249,245,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;min-height:78px;gap:1rem}
+.logo img{height:54px;width:auto}
+nav>ul{list-style:none;display:flex;gap:1.5rem;align-items:center}
+nav li{position:relative}
+nav a{text-decoration:none;color:var(--ink);font-size:.93rem;font-weight:500;padding:.5rem 0;display:inline-block}
+nav a:hover,nav a.on{color:var(--accent)}
+nav li ul{list-style:none;position:absolute;top:100%;left:-1rem;min-width:290px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:.6rem 0;box-shadow:0 18px 40px -18px rgba(15,42,67,.35);display:none}
+nav li:hover>ul,nav li:focus-within>ul{display:block}
+nav li ul a{display:block;padding:.4rem 1.2rem;font-size:.9rem}
+nav li ul ul{position:static;display:block;border:0;box-shadow:none;padding:0 0 0 .9rem;min-width:0;background:none}
+nav li ul ul a{font-size:.85rem;color:var(--soft)}
+.lang{display:flex;gap:.45rem;align-items:center}
+.lang img{width:22px;height:auto;border-radius:3px;opacity:.9}
+.lang a:hover img{opacity:1}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:.4rem}
+.burger span{display:block;width:26px;height:2px;background:var(--navy);margin:6px 0}
+
+.hero{position:relative;height:min(62vh,520px);min-height:320px;background:var(--navy);overflow:hidden}
+.hero.small{height:230px;min-height:0}
+.hero .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;animation:fade 18s infinite}
+.hero .slide:nth-child(2){animation-delay:6s}
+.hero .slide:nth-child(3){animation-delay:12s}
+.hero .slide.on{opacity:1;animation:none}
+@keyframes fade{0%{opacity:0}6%{opacity:1}33%{opacity:1}39%{opacity:0}100%{opacity:0}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,42,67,.12) 0%,rgba(15,42,67,.78) 100%)}
+.hero .txt{position:absolute;z-index:2;left:0;right:0;bottom:2.2rem;color:#fff}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,4.8vw,3.3rem);line-height:1.15}
+.hero.small h1{font-size:clamp(1.6rem,3.6vw,2.5rem)}
+.hero p{margin-top:.5rem;color:#e6edf4;font-size:1.1rem;letter-spacing:.04em}
+
+main{padding:3.2rem 0 5rem}
+.prose{background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(1.4rem,4vw,3rem);box-shadow:0 24px 50px -34px rgba(15,42,67,.4)}
+.prose p,.prose li{max-width:75ch}
+.prose p{margin-bottom:1.15rem}
+.prose h2{font-family:var(--serif);color:var(--navy);font-size:1.45rem;margin:2rem 0 .7rem;line-height:1.25}
+.prose h2:first-child{margin-top:0}
+.prose ul{margin:0 0 1.2rem 1.2rem}
+.prose li{margin-bottom:.6rem}
+.prose ul.plain{list-style:none;margin-left:0}
+.prose ul.plain li{padding:.8rem 1rem;border-left:3px solid var(--accent);background:#faf6ee;border-radius:0 10px 10px 0}
+.prose a{color:var(--navy);font-weight:600;text-decoration:none;border-bottom:2px solid rgba(184,137,59,.5);transition:.15s}
+.prose a:hover{background:rgba(184,137,59,.14);border-color:var(--accent)}
+.pull{font-family:var(--serif);font-size:1.3rem;color:var(--navy);border-left:4px solid var(--accent);padding:.4rem 0 .4rem 1.3rem;margin-top:1.8rem!important}
+.fl{display:inline-block;font-size:.68rem!important;letter-spacing:.08em;padding:.05rem .5rem!important;margin:0 .15rem;border:1px solid var(--accent)!important;border-radius:6px;color:var(--accent)!important;background:#fff;font-weight:700!important;line-height:1.6;vertical-align:.1em}
+.fl:hover{background:var(--accent)!important;color:#fff!important}
+.pub-section{font-family:var(--serif);color:var(--navy);font-size:1.5rem;margin:2.4rem 0 1rem;padding-top:1.4rem;border-top:1px solid var(--line)}
+.pub-section:first-child{border-top:0;margin-top:0;padding-top:0}
+.pub-list{list-style:none;margin:0!important}
+.pub-list li{padding:.7rem 0;border-bottom:1px dashed var(--line);max-width:none;font-size:.97rem;margin:0}
+.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem}
+.quick a{display:block;text-decoration:none;background:var(--navy);color:#fff;border-radius:14px;padding:1.6rem;transition:.2s}
+.quick a:hover{transform:translateY(-3px);background:var(--navy2)}
+.quick b{display:block;font-family:var(--serif);font-size:1.25rem;margin-bottom:.2rem}
+.quick span{color:#e3c58a;font-size:.88rem}
+.contact-top{display:grid;grid-template-columns:260px 1fr;gap:2rem;margin-bottom:2rem;align-items:start}
+.contact-top img{border-radius:14px;width:100%}
+.map iframe{width:100%;height:320px;border:0;border-radius:14px}
+.links{list-style:none;margin-left:0!important}
+.links li{padding:.55rem 0;border-bottom:1px solid var(--line);max-width:none}
+
+footer{background:#0a1d30;color:#8fa2b6;padding:2.2rem 0;font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+footer a{color:#c3d0dd;text-decoration:none;margin-right:1.2rem}
+footer a:hover{color:#fff}
+
+@media(max-width:1000px){
+ .burger{display:block}
+ nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);padding:1rem 4% 1.4rem;max-height:80vh;overflow:auto}
+ nav.open{display:block}
+ nav>ul{flex-direction:column;align-items:flex-start;gap:.3rem}
+ nav li ul{position:static;display:block;border:0;box-shadow:none;padding:0 0 0 1rem;min-width:0;background:none}
+ .quick{grid-template-columns:1fr}
+ .contact-top{grid-template-columns:1fr}
+ .contact-top img{max-width:260px}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap bar">
+  <a class="logo" href="index.html" aria-label="Médiation Genève"><img src="https://www.mediationgeneve.ch/wp-content/uploads/2016/08/MG_Logo.png" alt="Médiation Genève"></a>
+  <button class="burger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')"><span></span><span></span><span></span></button>
+  <nav id="menu">
+   <ul>
+    <li><a href="index.html">Accueil</a></li><li><a href="la-mediation.html">La médiation</a></li><li><a href="domaine-commercial.html">Domaines d’activités</a><ul><li><a href="domaine-commercial.html">Domaine Commercial</a></li><li><a href="domaine-immobilier.html">Domaine Immobilier</a></li><li><a href="domaine-familial.html">Domaine Familial</a></li></ul></li><li><a class="on" href="profil.html">Profils et Publications</a><ul><li><a href="conseiller-gestion-conflits.html">Conseiller en Gestion des conflits (CGC)</a><ul><li><a href="processus-hybrides.html">Processus Hybrides</a></li></ul></li><li><a href="mediateur.html">Médiateur</a></li><li><a href="conciliateur.html">Conciliateur</a></li><li><a href="curateur.html">Curateur</a></li><li><a href="formateur.html">Formateur</a></li><li><a href="publications.html">Publications</a></li><li><a href="formation.html">Formation</a></li></ul></li><li><a href="contact-liens.html">Contact &amp; Liens</a></li>
+    <li class="lang">
+     <a href="https://www.mediationgeneve.ch/fr/"><img src="https://www.mediationgeneve.ch/wp-content/plugins/qtranslate-x/flags/fr.png" alt="Français"></a>
+     <a href="https://www.mediationgeneve.ch/en/"><img src="https://www.mediationgeneve.ch/wp-content/plugins/qtranslate-x/flags/gb.png" alt="English"></a>
+     <a href="https://www.mediationgeneve.ch/ru/"><img src="https://www.mediationgeneve.ch/wp-content/plugins/qtranslate-x/flags/ru.png" alt="Русский"></a>
+    </li>
+   </ul>
+  </nav>
+ </div>
+</header>
+
+<section class="hero small">
+ <div class="slide on" style="background-image:url('https://www.mediationgeneve.ch/wp-content/uploads/2016/08/Geneve-header.jpg')"></div>
+ <div class="txt"><div class="wrap"><h1>Profils et Publications</h1></div></div>
+</section>
+
+<main><div class="wrap">
+
+<div class="prose">
+<p>Dans l’exercice de ses activités, Jean A Mirimanoff a présenté et présente plusieurs profils, à la fois différents et complémentaires : <strong><a href="conseiller-gestion-conflits.html">gestionnaire de conflit</a></strong>, <strong><a href="mediateur.html">médiateur</a></strong>, <strong><a href="conciliateur.html">conciliateur</a></strong>, tiers de confiance qui propose des modes de résolution <strong><a href="processus-hybrides.html">hybrides</a></strong> en cas d’impasse, y compris en tant que <strong><a href="curateur.html">curateur</a></strong>.</p>
+<p>Au cours de sa carrière professionnelle, comme avocat, comme conseiller juridique du Comité International de la Croix Rouge (CICR), comme magistrat et comme <strong><a href="formation.html">médiateur</a>,</strong> Jean A. Mirimanoff a été au quotidien confronté à des problèmes, des tensions et des conflits de toutes sortes. Avec d’autres spécialistes, il partage la conviction que dans ces situations les <strong><em>moyens pour les résoudre sont liés aux solutions</em></strong> escomptées. Il importe de savoir, pour satisfaire l’attente des personnes et des entreprises impliquées, de connaître de manière globale (holistique) quels sont <strong><em>les principaux objectifs des clients</em></strong> (par exemple : modérer les coûts ou non, épargner du temps ou non, préserver la confidentialité ou rendre public le cas, maintenir ou non les liens entre les parties, obtenir un précédent ou vouloir s’en garder, etc.) et d’identifier quels sont<strong><em> les obstacles à surmonter</em></strong> (par exemple : une communication déficiente, des différences de points de vue, de solutions techniques ou juridiques, des pressions, un grand nombre de protagonistes, de fors, de droits applicables, etc.). Ensuite il convient sur cette base d’analyser, en fonction des éléments objectifs et subjectifs du cas concret, quel est <strong><a href="conseiller-gestion-conflits.html">le mode de résolution approprié,</a></strong> c.à.d. convenant le mieux au cas concret. C’est important de bien sélectionner l’outil. Et ensuite de savoir le maîtriser.</p>
+<p>Or, dans certains cas il conviendra de recourir à la <strong><a href="mediateur.html">médiation</a></strong>, dans d’autres à la <strong><a href="conciliateur.html">conciliation</a></strong>, dans d’autres à des procédures <strong><a href="processus-hybrides.html">hybrides</a>.</strong> Dans d’autres enfin il siéra de faire trancher le cas par un jugement ou une sentence, lorsque les moyens amiables ne paraissent pas adéquats. <strong><em>Autant de profils différents pour le tiers</em></strong> chargé de résoudre ou d’aider les parties à résoudre. Gérer le conflit dans sa phase initiale – ce travail d’aiguillage vers le mode le plus adéquat- n’implique donc pas nécessairement la tâche de le résoudre par la suite. Le tiers consulté peut-il se prétendre omniscient, ou aura -t-il la modestie ou plutôt la correction de recommander à ses clients – le cas échéant – une autre personne que lui (elle) mieux armée dans sa spécialisation, ou un outil de résolution adéquat avec lequel il (elle) ne serait pas familier ? Tout va dépendre aussi du rôle, de la posture et des approches ou techniques que les parties attendent du tiers chargé de la résolution.</p>
+<p>De plus, il a accompagné cette pratique diversifiée par de nombreuses <a href="publications.html"><strong>publications</strong></a> – sous la forme de manuels, guides, articles, conférences et autres documents pédagogiques – qu’il a dirigées, rédigées ou co- écrites.</p>
+<p>Sa formation se conforte par une <a href="formation.html"><strong>formation continue</strong></a>, et par les ateliers qu’il est appelé à donner en Europe, pour les magistrats et les avocats.</p>
+</div>
+</div></main>
+
+<footer>
+ <div class="wrap">
+  <div><a href="la-mediation.html">La médiation</a><a href="profil.html">Profils et Publications</a><a href="contact-liens.html">Contact &amp; Liens</a></div>
+  <span>Copyright Mediationgeneve © 2023 . All Rights Reserved.</span>
+ </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La médiation — Médiation Genève</title>
+<style>
+:root{--ink:#14263a;--soft:#4a5b6d;--bg:#fbf9f5;--navy:#0f2a43;--navy2:#173d5e;--accent:#b8893b;--line:#e6e0d4;
+--serif:Georgia,"Times New Roman",serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.75;font-size:17.5px}
+img{max-width:100%;display:block}
+.wrap{width:min(1080px,92%);margin:0 auto}
+
+header{position:sticky;top:0;z-index:50;background:rgba(251,249,245,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;min-height:78px;gap:1rem}
+.logo img{height:54px;width:auto}
+nav>ul{list-style:none;display:flex;gap:1.5rem;align-items:center}
+nav li{position:relative}
+nav a{text-decoration:none;color:var(--ink);font-size:.93rem;font-weight:500;padding:.5rem 0;display:inline-block}
+nav a:hover,nav a.on{color:var(--accent)}
+nav li ul{list-style:none;position:absolute;top:100%;left:-1rem;min-width:290px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:.6rem 0;box-shadow:0 18px 40px -18px rgba(15,42,67,.35);display:none}
+nav li:hover>ul,nav li:focus-within>ul{display:block}
+nav li ul a{display:block;padding:.4rem 1.2rem;font-size:.9rem}
+nav li ul ul{position:static;display:block;border:0;box-shadow:none;padding:0 0 0 .9rem;min-width:0;background:none}
+nav li ul ul a{font-size:.85rem;color:var(--soft)}
+.lang{display:flex;gap:.45rem;align-items:center}
+.lang img{width:22px;height:auto;border-radius:3px;opacity:.9}
+.lang a:hover img{opacity:1}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:.4rem}
+.burger span{display:block;width:26px;height:2px;background:var(--navy);margin:6px 0}
+
+.hero{position:relative;height:min(62vh,520px);min-height:320px;background:var(--navy);overflow:hidden}
+.hero.small{height:230px;min-height:0}
+.hero .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;animation:fade 18s infinite}
+.hero .slide:nth-child(2){animation-delay:6s}
+.hero .slide:nth-child(3){animation-delay:12s}
+.hero .slide.on{opacity:1;animation:none}
+@keyframes fade{0%{opacity:0}6%{opacity:1}33%{opacity:1}39%{opacity:0}100%{opacity:0}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,42,67,.12) 0%,rgba(15,42,67,.78) 100%)}
+.hero .txt{position:absolute;z-index:2;left:0;right:0;bottom:2.2rem;color:#fff}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,4.8vw,3.3rem);line-height:1.15}
+.hero.small h1{font-size:clamp(1.6rem,3.6vw,2.5rem)}
+.hero p{margin-top:.5rem;color:#e6edf4;font-size:1.1rem;letter-spacing:.04em}
+
+main{padding:3.2rem 0 5rem}
+.prose{background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(1.4rem,4vw,3rem);box-shadow:0 24px 50px -34px rgba(15,42,67,.4)}
+.prose p,.prose li{max-width:75ch}
+.prose p{margin-bottom:1.15rem}
+.prose h2{font-family:var(--serif);color:var(--navy);font-size:1.45rem;margin:2rem 0 .7rem;line-height:1.25}
+.prose h2:first-child{margin-top:0}
+.prose ul{margin:0 0 1.2rem 1.2rem}
+.prose li{margin-bottom:.6rem}
+.prose ul.plain{list-style:none;margin-left:0}
+.prose ul.plain li{padding:.8rem 1rem;border-left:3px solid var(--accent);background:#faf6ee;border-radius:0 10px 10px 0}
+.prose a{color:var(--navy);font-weight:600;text-decoration:none;border-bottom:2px solid rgba(184,137,59,.5);transition:.15s}
+.prose a:hover{background:rgba(184,137,59,.14);border-color:var(--accent)}
+.pull{font-family:var(--serif);font-size:1.3rem;color:var(--navy);border-left:4px solid var(--accent);padding:.4rem 0 .4rem 1.3rem;margin-top:1.8rem!important}
+.fl{display:inline-block;font-size:.68rem!important;letter-spacing:.08em;padding:.05rem .5rem!important;margin:0 .15rem;border:1px solid var(--accent)!important;border-radius:6px;color:var(--accent)!important;background:#fff;font-weight:700!important;line-height:1.6;vertical-align:.1em}
+.fl:hover{background:var(--accent)!important;color:#fff!important}
+.pub-section{font-family:var(--serif);color:var(--navy);font-size:1.5rem;margin:2.4rem 0 1rem;padding-top:1.4rem;border-top:1px solid var(--line)}
+.pub-section:first-child{border-top:0;margin-top:0;padding-top:0}
+.pub-list{list-style:none;margin:0!important}
+.pub-list li{padding:.7rem 0;border-bottom:1px dashed var(--line);max-width:none;font-size:.97rem;margin:0}
+.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem}
+.quick a{display:block;text-decoration:none;background:var(--navy);color:#fff;border-radius:14px;padding:1.6rem;transition:.2s}
+.quick a:hover{transform:translateY(-3px);background:var(--navy2)}
+.quick b{display:block;font-family:var(--serif);font-size:1.25rem;margin-bottom:.2rem}
+.quick span{color:#e3c58a;font-size:.88rem}
+.contact-top{display:grid;grid-template-columns:260px 1fr;gap:2rem;margin-bottom:2rem;align-items:start}
+.contact-top img{border-radius:14px;width:100%}
+.map iframe{width:100%;height:320px;border:0;border-radius:14px}
+.links{list-style:none;margin-left:0!important}
+.links li{padding:.55rem 0;border-bottom:1px solid var(--line);max-width:none}
+
+footer{background:#0a1d30;color:#8fa2b6;padding:2.2rem 0;font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+footer a{color:#c3d0dd;text-decoration:none;margin-right:1.2rem}
+footer a:hover{color:#fff}
+
+@media(max-width:1000px){
+ .burger{display:block}
+ nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);padding:1rem 4% 1.4rem;max-height:80vh;overflow:auto}
+ nav.open{display:block}
+ nav>ul{flex-direction:column;align-items:flex-start;gap:.3rem}
+ nav li ul{position:static;display:block;border:0;box-shadow:none;padding:0 0 0 1rem;min-width:0;background:none}
+ .quick{grid-template-columns:1fr}
+ .contact-top{grid-template-columns:1fr}
+ .contact-top img{max-width:260px}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap bar">
+  <a class="logo" href="index.html" aria-label="Médiation Genève"><img src="https://www.mediationgeneve.ch/wp-content/uploads/2016/08/MG_Logo.png" alt="Médiation Genève"></a>
+  <button class="burger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')"><span></span><span></span><span></span></button>
+  <nav id="menu">
+   <ul>
+    <li><a href="index.html">Accueil</a></li><li><a class="on" href="la-mediation.html">La médiation</a></li><li><a href="domaine-commercial.html">Domaines d’activités</a><ul><li><a href="domaine-commercial.html">Domaine Commercial</a></li><li><a href="domaine-immobilier.html">Domaine Immobilier</a></li><li><a href="domaine-familial.html">Domaine Familial</a></li></ul></li><li><a href="profil.html">Profils et Publications</a><ul><li><a href="conseiller-gestion-conflits.html">Conseiller en Gestion des conflits (CGC)</a><ul><li><a href="processus-hybrides.html">Processus Hybrides</a></li></ul></li><li><a href="mediateur.html">Médiateur</a></li><li><a href="conciliateur.html">Conciliateur</a></li><li><a href="curateur.html">Curateur</a></li><li><a href="formateur.html">Formateur</a></li><li><a href="publications.html">Publications</a></li><li><a href="formation.html">Formation</a></li></ul></li><li><a href="contact-liens.html">Contact &amp; Liens</a></li>
+    <li class="lang">
+     <a href="https://www.mediationgeneve.ch/fr/"><img src="https://www.mediationgeneve.ch/wp-content/plugins/qtranslate-x/flags/fr.png" alt="Français"></a>
+     <a href="https://www.mediationgeneve.ch/en/"><img src="https://www.mediationgeneve.ch/wp-content/plugins/qtranslate-x/flags/gb.png" alt="English"></a>
+     <a href="https://www.mediationgeneve.ch/ru/"><img src="https://www.mediationgeneve.ch/wp-content/plugins/qtranslate-x/flags/ru.png" alt="Русский"></a>
+    </li>
+   </ul>
+  </nav>
+ </div>
+</header>
+
+<section class="hero small">
+ <div class="slide on" style="background-image:url('https://www.mediationgeneve.ch/wp-content/uploads/2016/08/Geneve-header.jpg')"></div>
+ <div class="txt"><div class="wrap"><h1>La médiation</h1></div></div>
+</section>
+
+<main><div class="wrap">
+
+<div class="prose">
+<p><b>Qu’est ce que la médiation ?</b></p>
+<p>La médiation n’est, de loin, pas le seul mode amiable (consensuel) de résolution des différends, mais le moins connu et le moins pratiqué. C’est ce qui justifie de le présenter ici.</p>
+<h2>1. Pourquoi la médiation ?</h2>
+<p>La médiation présente de nombreux avantages comparativement aux modes (ou outils) traditionnels de résolution des différends (la procédure judiciaire et l’arbitrage) : elle est tout d’abord plus rapide, moins coûteuse et plus constructive. Elle permet aux parties de régler leur conflit dans sa globalité, avec tous ses aspects, y compris les émotions, préoccupations, besoins, valeurs et intérêts, qui ne sont généralement pas pris en considération dans la procédure civile et l’arbitrage. Les procédures traditionnelles sont en effet limitées à l’examen des faits pré- sélectionnés et offerts en preuve, sans pouvoir s’écarter des conclusions des parties.</p>
+<p>Dans son déroulement (le processus) comme dans la construction de sa solution (le contenu de leur accord), elle se manifeste comme une méthode sur mesure et à la mesure des parties. Enfin la médiation permet, par une issue gagnant-gagnant, de rétablir ou de reconstruire les liens sociaux, ou d’y mettre fin de manière plus adaptée que par le combat judiciaire et arbitral, avec un gagnant et un perdant, et ses aléas découlant des recours de toutes sortes.</p>
+<p>C’est parce que sa solution est plus durable qu’il faut considérer la médiation comme prioritaire.</p>
+<h2>2. De quoi s’agit-il ?</h2>
+<p>La médiation est une méthode de prévention ou de résolution des différends. Son processus, <strong>volontaire et confidentiel</strong>, consiste à faire intervenir un <a href="formation.html">tiers qualifié et accrédité</a> – le médiateur – pour rétablir le dialogue et aider les parties, par une négociation facilitée, à forger <strong>elles-mêmes</strong> leur propre solution.</p>
+<p>Le médiateur a la responsabilité du bon déroulement du processus, les parties étant seules maîtresses de son issue. Ainsi le médiateur se pose en facilitateur de la communication et de la négociation, par sa maïeutique et sa pratique de la méthode raisonnée, en s’abstenant de tout conseil, avis ou décision quant à la solution.</p>
+<h2>3. Quand intervient-elle ?</h2>
+<p>La médiation peut aussi bien intervenir au début d’un problème ou d’un conflit, au moment des premières difficultés entre les parties, avant donc la saisine d’un tribunal, ceci par exemple soit de par une clause contractuelle, soit de par une décision ad hoc des parties. La loi prévoit par ailleurs qu’elle peut intervenir lors de la saisine du tribunal, en lieu et place de la conciliation obligatoire, ou encore en cours de procédure, en première et même en deuxième instance. Il en va de même avec l’arbitrage.</p>
+<h2>4. Comment se déroule –t- elle ?</h2>
+<p>Après avoir choisi librement un médiateur, les parties sont convoquées à un entretien individuel préalable, permettant de vérifier leur libre adhésion, leur pouvoir (pour représenter les personnes juridiques) et de préparer les modalités du processus.</p>
+<p>Le tarif horaire est fixé au début du processus et les coûts sont partagés entre les parties.</p>
+<p>La médiation se déroule ensuite en une ou plusieurs séances communes, pouvant comprendre des entretiens séparés (apartés) si nécessaire, les parties pouvant se faire accompagner ou non par leur conseil dans chacune ou certaines des étapes. Chaque partie s’y engage à suivre un comportement respectueux, loyal et constructif en vue de renouer le dialogue, comprendre leur différend et émettre des options entre lesquelles elles se détermineront suite à un test de réalité.</p>
+<h2>5. Quelles garanties ?</h2>
+<p>Les garanties pour les partenaires à la médiation sont de deux ordres: ils tiennent à la personne du médiateur et au déroulement du processus.</p>
+<p>5.1. Le <strong>médiateur</strong> doit offrir toutes garanties de <a href="formation.html"><strong>qualification professionnelles et d’éthique</strong></a>. On le choisira de préférence sur la liste officielle établie par le Conseil d’Etat à Genève, le Tribunal cantonal dans le canton de Vaud, ou d’autres autorités ailleurs, comme à Fribourg, qui examinent s’il remplit les conditions prévues par la loi. Par ailleurs des associations faîtières, comme la chambre suisse de médiation commerciale (CSMC/SKWM) délivrent une accréditation et la confirme régulièrement, en vérifiant la formation adéquate et la formation continu de médiateur.</p>
+<p>5.2. Le <b>bon déroulement du processus</b> est régi par quelques principes fondamentaux et quasiment universels :</p>
+<ul>
+<li><b>Humanité</b> : c’est la personne humaine qui est au cœur de la médiation, qui a pour objectif de rétablir le dialogue et pour effet de diminuer ou d’apaiser les souffrances et les gaspillages de toutes sortes engendrés par le conflit</li>
+<li><b>Multipartialité et empathie du médiateur</b> : ce dernier s’engage à servir les parties de manière équitable, sans établir entre elles de distinction de caractère défavorable ; il assume la bonne conduite du processus ;</li>
+<li><b>Liberté et autonomie</b> : les parties sont libres d’accepter ou de refuser d’entrer dans le processus, et peuvent le quitter en tout temps ; le médiateur est libre d’entamer, de poursuivre, de suspendre le processus ou d’y mettre fin ;</li>
+<li><b>Responsabilité</b> : les parties ont le devoir de s’engager de bonne foi dans le processus, de s’y comporter de manière respectueuse et transparente et d’en respecter la confidentialité ; elles sont responsables de son issue. Le médiateur a la responsabilité de la bonne conduite du processus ; il a le devoir de vérifier que les parties ont bien compris les caractéristiques du processus, leur rôle et le sien ; le médiateur doit s’assurer que les parties donnent à leur accord final un consentement libre et éclairé, et les invitera, si nécessaire, à consulter ; il a le devoir d’y mettre fin si la solution envisagée est irréalisable ou contraire au droit ;</li>
+<li><b>Indépendance</b> : le médiateur est indépendant. Il doit révéler aux parties toutes les circonstances qui objectivement ou subjectivement sont de nature à compromettre son indépendance ;</li>
+<li><b>Neutralité</b> : le médiateur s’abstient de prendre part à la controverse et de s’exprimer sur le contenu du différend ;</li>
+<li><b>Humilité ou absence de pouvoir</b> : le médiateur n’a aucun pouvoir de décision ;</li>
+<li><b>Confidentialité</b> : les parties et le médiateur s’interdisent de dévoiler à des tiers toutes les déclarations, opinions ou propositions émises lors du processus, ni de produire dans des procédures ultérieures des documents les reflétant. Les parties s’interdisent de citer le médiateur comme témoin. Le médiateur tiendra en outre pour confidentielles l’existence du processus et le nom des parties.</li>
+</ul>
+<p class="docs"><b>Pour en savoir plus :</b> La médiation en 10 points
+<a class="fl" href="http://www.mediationgeneve.ch/Mediation_en_10_Questions.pdf">FR</a> <a class="fl" href="http://mediationgeneve.ch/FAQ%20Mediation/000_FAQ_English_2014_08_28_PDF.pdf">EN</a> <a class="fl" href="http://mediationgeneve.ch/FAQ%20Mediation/000_FAQ_Russe_2014_08_28_PDF.pdf">RU</a> <a class="fl" href="http://mediationgeneve.ch/FAQ%20Mediation/000_FAQ_Deutsch_2014_09_22_PDF.pdf">DE</a> <a class="fl" href="http://mediationgeneve.ch/FAQ%20Mediation/000_FAQ_Espagnol_2014_08_28_PDF.pdf">ES</a></p>
+</div>
+
+</div></main>
+
+<footer>
+ <div class="wrap">
+  <div><a href="la-mediation.html">La médiation</a><a href="profil.html">Profils et Publications</a><a href="contact-liens.html">Contact &amp; Liens</a></div>
+  <span>Copyright Mediationgeneve © 2023 . All Rights Reserved.</span>
+ </div>
+</footer>
+</body>
+</html>

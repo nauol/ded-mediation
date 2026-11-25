@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact & Liens — Médiation Genève</title>
+<style>
+:root{--ink:#14263a;--soft:#4a5b6d;--bg:#fbf9f5;--navy:#0f2a43;--navy2:#173d5e;--accent:#b8893b;--line:#e6e0d4;
+--serif:Georgia,"Times New Roman",serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.75;font-size:17.5px}
+img{max-width:100%;display:block}
+.wrap{width:min(1080px,92%);margin:0 auto}
+
+header{position:sticky;top:0;z-index:50;background:rgba(251,249,245,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;min-height:78px;gap:1rem}
+.logo img{height:54px;width:auto}
+nav>ul{list-style:none;display:flex;gap:1.5rem;align-items:center}
+nav li{position:relative}
+nav a{text-decoration:none;color:var(--ink);font-size:.93rem;font-weight:500;padding:.5rem 0;display:inline-block}
+nav a:hover,nav a.on{color:var(--accent)}
+nav li ul{list-style:none;position:absolute;top:100%;left:-1rem;min-width:290px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:.6rem 0;box-shadow:0 18px 40px -18px rgba(15,42,67,.35);display:none}
+nav li:hover>ul,nav li:focus-within>ul{display:block}
+nav li ul a{display:block;padding:.4rem 1.2rem;font-size:.9rem}
+nav li ul ul{position:static;display:block;border:0;box-shadow:none;padding:0 0 0 .9rem;min-width:0;background:none}
+nav li ul ul a{font-size:.85rem;color:var(--soft)}
+.lang{display:flex;gap:.45rem;align-items:center}
+.lang img{width:22px;height:auto;border-radius:3px;opacity:.9}
+.lang a:hover img{opacity:1}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:.4rem}
+.burger span{display:block;width:26px;height:2px;background:var(--navy);margin:6px 0}
+
+.hero{position:relative;height:min(62vh,520px);min-height:320px;background:var(--navy);overflow:hidden}
+.hero.small{height:230px;min-height:0}
+.hero .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;animation:fade 18s infinite}
+.hero .slide:nth-child(2){animation-delay:6s}
+.hero .slide:nth-child(3){animation-delay:12s}
+.hero .slide.on{opacity:1;animation:none}
+@keyframes fade{0%{opacity:0}6%{opacity:1}33%{opacity:1}39%{opacity:0}100%{opacity:0}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,42,67,.12) 0%,rgba(15,42,67,.78) 100%)}
+.hero .txt{position:absolute;z-index:2;left:0;right:0;bottom:2.2rem;color:#fff}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,4.8vw,3.3rem);line-height:1.15}
+.hero.small h1{font-size:clamp(1.6rem,3.6vw,2.5rem)}
+.hero p{margin-top:.5rem;color:#e6edf4;font-size:1.1rem;letter-spacing:.04em}
+
+main{padding:3.2rem 0 5rem}
+.prose{background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(1.4rem,4vw,3rem);box-shadow:0 24px 50px -34px rgba(15,42,67,.4)}
+.prose p,.prose li{max-width:75ch}
+.prose p{margin-bottom:1.15rem}
+.prose h2{font-family:var(--serif);color:var(--navy);font-size:1.45rem;margin:2rem 0 .7rem;line-height:1.25}
+.prose h2:first-child{margin-top:0}
+.prose ul{margin:0 0 1.2rem 1.2rem}
+.prose li{margin-bottom:.6rem}
+.prose ul.plain{list-style:none;margin-left:0}
+.prose ul.plain li{padding:.8rem 1rem;border-left:3px solid var(--accent);background:#faf6ee;border-radius:0 10px 10px 0}
+.prose a{color:var(--navy);font-weight:600;text-decoration:none;border-bottom:2px solid rgba(184,137,59,.5);transition:.15s}
+.prose a:hover{background:rgba(184,137,59,.14);border-color:var(--accent)}
+.pull{font-family:var(--serif);font-size:1.3rem;color:var(--navy);border-left:4px solid var(--accent);padding:.4rem 0 .4rem 1.3rem;margin-top:1.8rem!important}
+.fl{display:inline-block;font-size:.68rem!important;letter-spacing:.08em;padding:.05rem .5rem!important;margin:0 .15rem;border:1px solid var(--accent)!important;border-radius:6px;color:var(--accent)!important;background:#fff;font-weight:700!important;line-height:1.6;vertical-align:.1em}
+.fl:hover{background:var(--accent)!important;color:#fff!important}
+.pub-section{font-family:var(--serif);color:var(--navy);font-size:1.5rem;margin:2.4rem 0 1rem;padding-top:1.4rem;border-top:1px solid var(--line)}
+.pub-section:first-child{border-top:0;margin-top:0;padding-top:0}
+.pub-list{list-style:none;margin:0!important}
+.pub-list li{padding:.7rem 0;border-bottom:1px dashed var(--line);max-width:none;font-size:.97rem;margin:0}
+.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem}
+.quick a{display:block;text-decoration:none;background:var(--navy);color:#fff;border-radius:14px;padding:1.6rem;transition:.2s}
+.quick a:hover{transform:translateY(-3px);background:var(--navy2)}
+.quick b{display:block;font-family:var(--serif);font-size:1.25rem;margin-bottom:.2rem}
+.quick span{color:#e3c58a;font-size:.88rem}
+.contact-top{display:grid;grid-template-columns:260px 1fr;gap:2rem;margin-bottom:2rem;align-items:start}
+.contact-top img{border-radius:14px;width:100%}
+.map iframe{width:100%;height:320px;border:0;border-radius:14px}
+.links{list-style:none;margin-left:0!important}
+.links li{padding:.55rem 0;border-bottom:1px solid var(--line);max-width:none}
+
+footer{background:#0a1d30;color:#8fa2b6;padding:2.2rem 0;font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+footer a{color:#c3d0dd;text-decoration:none;margin-right:1.2rem}
+footer a:hover{color:#fff}
+
+@media(max-width:1000px){
+ .burger{display:block}
+ nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);padding:1rem 4% 1.4rem;max-height:80vh;overflow:auto}
+ nav.open{display:block}
+ nav>ul{flex-direction:column;align-items:flex-start;gap:.3rem}
+ nav li ul{position:static;display:block;border:0;box-shadow:none;padding:0 0 0 1rem;min-width:0;background:none}
+ .quick{grid-template-columns:1fr}
+ .contact-top{grid-template-columns:1fr}
+ .contact-top img{max-width:260px}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap bar">
+  <a class="logo" href="index.html" aria-label="Médiation Genève"><img src="https://www.mediationgeneve.ch/wp-content/uploads/2016/08/MG_Logo.png" alt="Médiation Genève"></a>
+  <button class="burger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')"><span></span><span></span><span></span></button>
+  <nav id="menu">
+   <ul>
+    <li><a href="index.html">Accueil</a></li><li><a href="la-mediation.html">La médiation</a></li><li><a href="domaine-commercial.html">Domaines d’activités</a><ul><li><a href="domaine-commercial.html">Domaine Commercial</a></li><li><a href="domaine-immobilier.html">Domaine Immobilier</a></li><li><a href="domaine-familial.html">Domaine Familial</a></li></ul></li><li><a href="profil.html">Profils et Publications</a><ul><li><a href="conseiller-gestion-conflits.html">Conseiller en Gestion des conflits (CGC)</a><ul><li><a href="processus-hybrides.html">Processus Hybrides</a></li></ul></li><li><a href="mediateur.html">Médiateur</a></li><li><a href="conciliateur.html">Conciliateur</a></li><li><a href="curateur.html">Curateur</a></li><li><a href="formateur.html">Formateur</a></li><li><a href="publications.html">Publications</a></li><li><a href="formation.html">Formation</a></li></ul></li><li><a class="on" href="contact-liens.html">Contact &amp; Liens</a></li>
+    <li class="lang">
+     <a href="https://www.mediationgeneve.ch/fr/"><img src="https://www.mediationgeneve.ch/wp-content/plugins/qtranslate-x/flags/fr.png" alt="Français"></a>
+     <a href="https://www.mediationgeneve.ch/en/"><img src="https://www.mediationgeneve.ch/wp-content/plugins/qtranslate-x/flags/gb.png" alt="English"></a>
+     <a href="https://www.mediationgeneve.ch/ru/"><img src="https://www.mediationgeneve.ch/wp-content/plugins/qtranslate-x/flags/ru.png" alt="Русский"></a>
+    </li>
+   </ul>
+  </nav>
+ </div>
+</header>
+
+<section class="hero small">
+ <div class="slide on" style="background-image:url('https://www.mediationgeneve.ch/wp-content/uploads/2016/08/Geneve-header.jpg')"></div>
+ <div class="txt"><div class="wrap"><h1>Contact & Liens</h1></div></div>
+</section>
+
+<main><div class="wrap">
+
+<div class="prose">
+<div class="contact-top">
+ <figure><img src="https://www.mediationgeneve.ch/wp-content/uploads/2016/10/JAM-150216.jpg" alt="Jean A. Mirimanoff"></figure>
+ <div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2761.4414602738843!2d6.149575915582294!3d46.201672379116545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9622c74793d225d4!2sMediation+Gen%C3%A8ve!5e0!3m2!1sfr!2s!4v1476955244842" loading="lazy" allowfullscreen></iframe></div>
+</div>
+<h2>Liens Utiles</h2>
+<ul class="links">
+<li><b>Chambre Suisse de Médiation Commerciale, (CSMC)</b></li>
+<li><b>Chambre de Commerce et d’Industrie de Genève, (CCIG)</b></li>
+<li><b>Groupement Européen des Magistrats pour la Médiation, </b><a href="http://www.gemme.eu/"><b>(GEMME)</b></a></li>
+<li><b>Groupement Suisse des Magistrats pour la Médiation et la Conciliation, </b><a href="http://www.gemme.ch/"><b>(GEMME- CH)</b></a></li>
+<li><b>Conférence internationale de la Médiation pour la Justice, (Montréal /Paris, </b><a href="http://www.cimj.com/fr"><b>CIMJ</b></a><b>)</b></li>
+<li><strong>Commission pour l’Efficacité de la Justice, Conseil de l’Europe, (Strasbourg, <a href="http://www.coe.int/T/dghl/cooperation/cepej/default_fr.asp">CEPEJ</a>)</strong></li>
+<li><strong>Faculté de droit, <a href="http://www.unige.ch/droit/index.html">(Université de Genève)</a></strong></li>
+<li><b>International Mediation Institute, (La Haye IMI)</b></li>
+<li><b>Institut de Conflictologie, (Faculté de philosophie, </b><a href="http://philosophy.spbu.ru/"><b>Université d’Etat de Saint-Pétersbourg )</b></a></li>
+<li><strong>Center for promotion of mediation and alternative dispute resolution</strong> <a href="http://www.somediars.ru/en/">(SOMEDIARS)</a></li>
+<li><b>Cedidac (Faculté de droit, Université de Lausanne), </b><a href="http://www.unil.ch/cedidac/fr/home.html"><b>Cedidac</b></a></li>
+<li><b>Staempfli (Berne), </b><a href="http://www.staempfli.com/fr/"><b>Staempfli</b></a></li>
+<li><b>Helbing ( Bâle), </b><a href="http://www.helbing.ch/publisher/imprint?bpmlang=fr"><b>Helbing</b></a></li>
+<li><strong>Larcier (Bruxelles)</strong>, <strong><a href="http://editionslarcier.larciergroup.com/">Larcier</a></strong></li>
+<li><strong>Slatkine (Genève)</strong>, <strong><a href="http://www.slatkine.com/fr/nouveautes/editions-slatkine">Slatkine</a></strong></li>
+<li><strong>Permanance d’Information sur la Médiation de Genève,</strong> <strong>(PIM)</strong></li>
+<li><strong>Alpes Maritimes Médiation, (Nice <a href="http://alpesmaritimes-mediation.fr/">AMM )</a></strong></li>
+</ul>
+</div>
+</div></main>
+
+<footer>
+ <div class="wrap">
+  <div><a href="la-mediation.html">La médiation</a><a href="profil.html">Profils et Publications</a><a href="contact-liens.html">Contact &amp; Liens</a></div>
+  <span>Copyright Mediationgeneve © 2023 . All Rights Reserved.</span>
+ </div>
+</footer>
+</body>
+</html>
